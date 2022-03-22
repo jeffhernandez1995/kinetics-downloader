@@ -87,6 +87,10 @@ def main(args):
 
   maybe_create_dirs()
 
+  if args.dataset == 'mini':
+    config.TRAIN_METADATA_PATH = "resources/minikinetics_train.json"
+    config.VAL_METADATA_PATH = "resources/minikinetics_val.json"
+
   if args.all:
     # download all categories => all videos
     with open(config.CATEGORIES_PATH, "r") as file:
@@ -116,6 +120,7 @@ if __name__ == "__main__":
 
   parser = argparse.ArgumentParser("Download Kinetics videos in the mp4 format.")
 
+  parser.add_argument("--dataset", type=str, default='mini', help="Whether to download the whole dataset or the mini dataset")
   parser.add_argument("--categories", nargs="+", help="categories to download")
   parser.add_argument("--classes", nargs="+", help="classes to download")
   parser.add_argument("--all", action="store_true", help="download the whole dataset")
