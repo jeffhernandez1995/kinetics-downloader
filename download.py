@@ -90,6 +90,7 @@ def main(args):
   if args.dataset == 'mini':
     config.TRAIN_METADATA_PATH = "resources/minikinetics_train.json"
     config.VAL_METADATA_PATH = "resources/minikinetics_val.json"
+    config.CATEGORIES_PATH = "resources/minicategories.json"
 
   if args.all:
     # download all categories => all videos
